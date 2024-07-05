@@ -1,19 +1,26 @@
 version: 2
 
 models:
-  - name: customer_raw
+  - name: customers
     description: "Customer data"
     columns:
-      - name: id
+      - name: customer_id
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
-
+  - name: orders
+    description: "Order data"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
 sources:
   - name: jaffle_shop
-    database: raw  
-    schema: jaffle_shop  
+    database: raw
+    schema: jaffle_shop
     tables:
       - name: orders
       - name: customers
