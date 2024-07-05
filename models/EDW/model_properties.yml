@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: customer_orders
+    description: "Summarizes orders by customer"
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "The foreign key for the table"
+
+sources:
+  - name: dbt_tivy
+    database: pc_dbt_db
+    schema: dbt_tivy
+    tables:
+      - name: orders
+      - name: customers
